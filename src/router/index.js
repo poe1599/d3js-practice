@@ -11,14 +11,21 @@ const router = createRouter({
         layout: 'BaseLayout',
       },
     },
-    // {
-    //   path: '/example',
-    //   name: 'example',
-    //   component: () => import('../views/example.vue'),
-    //   meta: {
-    //     layout: 'MainLayout',
-    //   },
-    // },
+    {
+      path: '/example',
+      name: 'example',
+      component: () => import('../views/Example/ExampleIndex.vue'),
+      meta: {
+        layout: 'BaseLayout',
+      },
+      children: [
+        {
+          path: 'pie',
+          name: 'pie',
+          component: () => import('@/views/Example/PieChart.vue'),
+        },
+      ],
+    },
     {
       path: '/:catchAll(.*)',
       redirect: { name: 'index' },
