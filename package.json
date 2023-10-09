@@ -8,12 +8,35 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "pinia": "^2.1.6",
+    "@vueuse/core": "^9.7.0",
+    "dayjs": "^1.11.7",
+    "mitt": "^3.0.0",
+    "pinia": "^2.0.28",
+    "pinia-plugin-persistedstate": "^3.0.1",
+    "stylelint-config-tailwindcss": "^0.0.7",
     "vue": "^3.3.4",
-    "vue-router": "^4.2.4"
+    "vue-router": "^4.2.5"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^4.3.4",
-    "vite": "^4.4.9"
+    "@vitejs/plugin-vue": "^4.0.0",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.22.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-vue": "^9.3.0",
+    "postcss": "^8.4.31",
+    "postcss-html": "^1.5.0",
+    "postcss-scss": "^4.0.6",
+    "prettier": "^2.7.1",
+    "sass": "^1.56.2",
+    "stylelint": "^14.16.0",
+    "stylelint-config-html": "^1.1.0",
+    "stylelint-config-prettier": "^9.0.4",
+    "stylelint-config-recommended-vue": "^1.4.0",
+    "stylelint-config-standard-scss": "^6.1.0",
+    "stylelint-order": "^5.0.0",
+    "stylelint-scss": "^4.3.0",
+    "tailwindcss": "^3.3.3",
+    "vite": "^4.0.0"
   }
 }

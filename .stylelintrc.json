@@ -1,0 +1,139 @@
+{
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-recommended-vue",
+    "stylelint-config-prettier",
+    "stylelint-config-html",
+    "stylelint-config-tailwindcss"
+  ],
+  "plugins": ["stylelint-order"],
+  "overrides": [
+    {
+      "files": ["**/*.(scss|css|html|vue)"],
+      "customSyntax": "postcss-scss"
+    },
+    {
+      "files": ["**/*.(html|vue)"],
+      "customSyntax": "postcss-html"
+    }
+  ],
+  "rules": {
+    "declaration-block-trailing-semicolon": null,
+    "declaration-block-semicolon-newline-after": "always-multi-line",
+    "selector-pseudo-element-no-unknown": [
+      true,
+      {
+        "ignorePseudoElements": ["v-deep"]
+      }
+    ],
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": ["include", "mixin", "extend", "tailwind", "apply", "layer"]
+      }
+    ],
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["deep"]
+      }
+    ],
+    "function-parentheses-space-inside": "never-single-line",
+    "selector-class-pattern": null,
+    "max-nesting-depth": null,
+    "no-empty-source": null,
+    "no-descending-specificity": null,
+    "property-no-vendor-prefix": null,
+    "selector-max-compound-selectors": 3,
+    "value-no-vendor-prefix": null,
+    "color-function-notation": "legacy",
+    "alpha-value-notation": "number",
+    "font-family-name-quotes": "always-unless-keyword",
+    "scss/at-import-partial-extension-blacklist": null,
+    "scss/percent-placeholder-pattern": null,
+    "order/properties-alphabetical-order": null,
+    "order/properties-order": [
+      "position",
+      "top",
+      "bottom",
+      "right",
+      "left",
+      "display",
+      "flex-flow",
+      "flex-direction",
+      "flex-wrap",
+      "justify-content",
+      "align-items",
+      "align-content",
+      "flex",
+      "flex-basis",
+      "flex-grow",
+      "flex-shrink",
+      "align-self",
+      "float",
+      "clear",
+      "overflow",
+      "overflow-x",
+      "overflow-y",
+      "margin",
+      "margin-top",
+      "margin-right",
+      "margin-bottom",
+      "margin-left",
+      "padding",
+      "padding-top",
+      "padding-right",
+      "padding-bottom",
+      "padding-left",
+      "width",
+      "min-width",
+      "max-width",
+      "height",
+      "min-height",
+      "max-height",
+      "font-size",
+      "font-family",
+      "font-weight",
+      "text-align",
+      "text-justify",
+      "text-indent",
+      "text-overflow",
+      "text-decoration",
+      "white-space",
+      "color",
+      "background",
+      "background-position",
+      "background-repeat",
+      "background-size",
+      "background-color",
+      "background-clip",
+      "border",
+      "border-style",
+      "border-width",
+      "border-color",
+      "border-top-style",
+      "border-top-width",
+      "border-top-color",
+      "border-right-style",
+      "border-right-width",
+      "border-right-color",
+      "border-bottom-style",
+      "border-bottom-width",
+      "border-bottom-color",
+      "border-left-style",
+      "border-left-width",
+      "border-left-color",
+      "border-radius",
+      "opacity",
+      "filter",
+      "list-style",
+      "outline",
+      "visibility",
+      "z-index",
+      "box-shadow",
+      "text-shadow",
+      "resize",
+      "transition"
+    ]
+  }
+}
