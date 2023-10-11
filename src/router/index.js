@@ -24,6 +24,11 @@ const router = createRouter({
           name: 'pie',
           component: () => import('@/views/Example/PieChart.vue'),
         },
+        {
+          path: 'scatterPlot',
+          name: 'scatterPlot',
+          component: () => import('@/views/Example/ScatterPlot.vue'),
+        },
       ],
     },
     {
