@@ -32,6 +32,21 @@ const router = createRouter({
       ],
     },
     {
+      path: '/use',
+      name: 'use',
+      component: () => import('../views/Use/UseIndex.vue'),
+      meta: {
+        layout: 'BaseLayout',
+      },
+      children: [
+        {
+          path: 'pie',
+          name: 'pie',
+          component: () => import('@/views/Use/UsePie.vue'),
+        },
+      ],
+    },
+    {
       path: '/:catchAll(.*)',
       redirect: { name: 'index' },
     },
