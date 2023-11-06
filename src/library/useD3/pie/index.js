@@ -28,6 +28,7 @@ import * as d3 from 'd3'
  * @param {Object} [advanced.tooltipAttr] - 提示框屬性
  * @param {string} [advanced.tooltipClass] - 提示框 class
  * @param {Function} [advanced.tooltipCb] - 提示框內容函式
+ * @param {string} [advanced.tooltipPosition] - 提示框預設位置
  *
  * @param {Array} data - 圖表資料
  */
