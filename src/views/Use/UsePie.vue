@@ -8,7 +8,7 @@ defineOptions({
 
 const data = reactive([
   { name: '食', cost: 5000 },
-  { name: '衣', cost: 2000 },
+  { name: '衣', cost: 5000 },
   { name: '住', cost: 5500 },
   { name: '行', cost: 500 },
   { name: '育', cost: 1000 },
@@ -60,7 +60,9 @@ const drawChart = () => {
     },
     // 進階設定
     advanced: {
-      // radius: [0, 0.8],
+      // innerRadius: 0,
+      // outerRadius: 180,
+      // cornerRadius: 8,
       // colorCb: d => [][d.index],
       // duration: 500,
       // isSortAsc: null,
@@ -75,6 +77,7 @@ const drawChart = () => {
       // labelAttr: {},
       // labelClass: '',
       // labelCb: d => `${d.data['cost']} ${d.percentage}%`,
+      // labelRadius: 120,
       // // tooltip
       // isTooltip: true,
       // tooltipStyle: {},

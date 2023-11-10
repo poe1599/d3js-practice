@@ -10,7 +10,9 @@ import * as d3 from 'd3'
  * @param {string} [basic.labelKey] - 標籤鍵值
  *
  * @param {Object} advanced - 進階設定(有預設參數)
- * @param {Array} [advanced.radius] - 內/外圈半徑比例
+ * @param {number} [advanced.innerRadius] - 內圈半徑
+ * @param {number} [advanced.outerRadius] - 外圈半徑
+ * @param {number} [advanced.cornerRadius] - 圓角半徑
  * @param {Function} [advanced.colorCb] - 顏色函式
  * @param {number} [advanced.duration] - 動畫時間
  * @param {boolean|null} [basic.isSortAsc] - 是否資料升冪排列
@@ -23,6 +25,7 @@ import * as d3 from 'd3'
  * @param {Object} [advanced.labelAttr] - 標籤屬性
  * @param {string} [advanced.labelClass] - 標籤 class
  * @param {Function} [advanced.labelCb] - 標籤內容函式
+ * @param {number} [advanced.labelRadius] - 標籤半徑
  * @param {boolean} [advanced.isTooltip] - 是否顯示提示框
  * @param {Object} [advanced.tooltipStyle] - 提示框樣式
  * @param {Object} [advanced.tooltipAttr] - 提示框屬性
@@ -35,7 +38,9 @@ import * as d3 from 'd3'
 const usePie = async ({
   basic: { select, width, height, valueKey, labelKey } = {},
   advanced: {
-    radius = [0, 0.8],
+    innerRadius = 0,
+    outerRadius = ((width < height ? width : height) * 0.8) / 2,
+    cornerRadius = 0,
     colorCb = d3.scaleOrdinal().range(d3.schemeSet3),
     duration = 500,
     isSortAsc = null,
@@ -52,6 +57,7 @@ const usePie = async ({
     labelAttr = {},
     labelClass = '',
     labelCb = d => `${d.data[labelKey]} ${d.percentage}%`,
+    labelRadius = (innerRadius + outerRadius) / 2,
 
     // tooltip
     isTooltip = true,
@@ -77,17 +83,12 @@ const usePie = async ({
   }
 
   const shortSide = width < height ? width : height
-  const innerRadius = (shortSide * radius[0]) / 2
-  const outerRadius = (shortSide * radius[1]) / 2
 
   // 設定內/外圈半徑弧度
-  const arc = d3.arc().innerRadius(innerRadius).outerRadius(outerRadius).padAngle(0)
+  const arc = d3.arc().innerRadius(innerRadius).outerRadius(outerRadius).padAngle(0).cornerRadius(cornerRadius)
 
   // 調整標示位置
-  const labelArc = d3
-    .arc()
-    .innerRadius(innerRadius)
-    .outerRadius(outerRadius * 1.5)
+  const labelArc = d3.arc().innerRadius(labelRadius).outerRadius(labelRadius)
 
   // 圖表資料處理函式
   const chartGenerator = d3
@@ -301,7 +302,9 @@ const usePie = async ({
       labelKey,
     },
     advanced: {
-      radius,
+      innerRadius,
+      outerRadius,
+      cornerRadius,
       colorCb,
       duration,
       isSortAsc,
@@ -316,6 +319,7 @@ const usePie = async ({
       labelAttr,
       labelClass,
       labelCb,
+      labelRadius,
 
       isTooltip,
       tooltipStyle,
